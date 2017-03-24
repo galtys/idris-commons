@@ -37,14 +37,6 @@ data Action : (aty : ActionTy)
     ||| @ety The reported error.
     Error : ety -> Action aty rty ety
 
-||| Alias for File actions.
-FileAction : ActionTy -> Type -> Type
-FileAction action rTy = Action action rTy FileError
-
-(Show eTy, Show rTy) => Show (Action aTy rTy eTy) where
-  show Success = "Success"
-  show (Result x) = unwords ["Result:", show x]
-  show (Error x) = unwords ["Error:\n", show x]
 
 ||| Given an `action` if it was successful return `success` otherwise return `backup`.
 success : (backup  : Lazy b)
@@ -60,6 +52,13 @@ result : (backup     : Lazy b)
       -> (result : Action RESULT rty ety)
       -> b
 result _      transform (Result x) = transform x
-result backup _ (Error x) = backup
+result backup _         (Error x)  = backup
+
+runEitherIO : IO (Either ety rty) -> IO $ Action RESULT rty ety
+runEitherIO func =
+  case !func of
+    Left err  => pure $ Error  err
+    Right res => pure $ Result res
+
 
 -- --------------------------------------------------------------------- [ EOF ]
