@@ -16,3 +16,6 @@ modules = Data.Action
         , Data.Literals
         , Data.Ranged
         , Data.Serialise
+        , Data.String.Stringy
+        , Data.FilePath
+        , Data.QName
