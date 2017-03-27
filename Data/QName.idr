@@ -3,7 +3,7 @@
 ||| TODO: Look at making names subject to user supplied predicates.
 module Data.QName
 
-import Data.String.Stringy
+import Data.Display
 
 %default total
 %access public export
@@ -29,9 +29,9 @@ Show (QName shape) where
   show (BN x)    = unwords ["BN", show x]
   show (QN x xs) = unwords ["QN", show x, show xs]
 
-Stringy (QName shape) where
-  toString (BN x) = x
-  toString (QN x ys) = x ++ "/" ++ toString ys
+Display (QName shape) where
+  display (BN x) = x
+  display (QN x ys) = x ++ "." ++ display ys
 
 
 -- --------------------------------------------------------------------- [ EOF ]

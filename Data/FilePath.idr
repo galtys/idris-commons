@@ -1,6 +1,6 @@
 module Data.FilePath
 
-import Data.String.Stringy
+import Data.Display
 
 %default total
 %access public export
@@ -34,7 +34,7 @@ Show FilePath where
   show (Path x xs)    = unwords ["Path", show x, show xs]
 
 
-Stringy FilePath where
-  toString (Basename x Nothing)  = x
-  toString (Basename x (Just y)) = x ++ "." ++ y
-  toString (Path name rest)      = name ++ "/" ++ toString rest
+Display FilePath where
+  display (Basename x Nothing)  = x
+  display (Basename x (Just y)) = x ++ "." ++ y
+  display (Path name rest)      = name ++ "/" ++ display rest
