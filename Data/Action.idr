@@ -60,5 +60,9 @@ runEitherIO func =
     Left err  => pure $ Error  err
     Right res => pure $ Result res
 
+(Show rty, Show ety) => Show (Action ty rty ety) where
+  show Success    = "Success"
+  show (Result x) = unwords ["Result", show x]
+  show (Error  x) = unwords ["Error", show x]
 
 -- --------------------------------------------------------------------- [ EOF ]
