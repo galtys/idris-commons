@@ -33,11 +33,6 @@ data State = Closed | Open
 FileAction : ActionTy -> Type -> Type
 FileAction action rTy = Action action rTy FileError
 
-(Show eTy, Show rTy) => Show (Action aTy rTy eTy) where
-  show Success = "Success"
-  show (Result x) = unwords ["Result:", show x]
-  show (Error x) = unwords ["Error:\n", show x]
-
 interface FileIO (m : Type -> Type) where
   data File : Mode -> State -> Type
 

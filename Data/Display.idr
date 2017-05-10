@@ -10,9 +10,8 @@ module Data.Display
 ||| Unlike `Show` there is no link to `Read`, and should see this as
 ||| inbetween `Pretty` and `Show`, that is useful for adhoc `toString`
 ||| methods.
-interface Show a => Display a where
+interface Display a where
   display : a -> String
-  display = show
 
 namespace IO
   display : Display a => a -> IO ()
