@@ -13,9 +13,17 @@ module Data.Display
 interface Display a where
   display : a -> String
 
-namespace IO
-  display : Display a => a -> IO ()
-  display x = putStr $ display x
+Display String where
+  display x = x
 
-  displayLn : Display a => a -> IO ()
-  displayLn x = putStrLn $ display x
+Display Int where
+  display x = show x
+
+Display Nat where
+  display n = show (the Integer (cast n))
+
+Display Bool where
+  display True = "True"
+  display False = "False"
+
+-- --------------------------------------------------------------------- [ EOF ]

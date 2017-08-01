@@ -1,16 +1,12 @@
 module Commons.Logging
 
+import Control.IOExcept
 import Control.ST
 
-import Data.Action
-
-import Commons.ST
-import Commons.File
-
 %default total
-%access public export
+%access export
 
-
+public export
 data LogLevel : Type where
   OFF : LogLevel
 
@@ -36,6 +32,7 @@ data LogLevel : Type where
   ||| All events should be logged.
   ALL : LogLevel
 
+export
 Cast LogLevel Nat where
   cast OFF   = 0
   cast TRACE = 10
@@ -46,48 +43,69 @@ Cast LogLevel Nat where
   cast FATAL = 60
   cast ALL = 70
 
+export
 Eq LogLevel where
   (==) x y = cast {to=Nat} x == cast {to=Nat} y
 
-
-
+export
 Ord LogLevel where
   compare x y = compare (cast {to=Nat} x) (cast {to=Nat} y)
 
-namespace Console
-  interface Logging (m : Type -> Type) where
-    Logger : Type
+public export
+interface Logging (m : Type -> Type) where
+  data Logger : Type
 
-    startLogging : (lvl : LogLevel)
-                -> ST m (Var) [add Logger]
+  startLogging : (lvl : LogLevel)
+              -> ST m (Var) [add Logger]
 
-    setLevel : (logger : Var)
-            -> (new : LogLevel)
-            -> ST m () [logger ::: Logger]
+  setLevel : (logger : Var)
+          -> (new : LogLevel)
+          -> ST m () [logger ::: Logger]
 
-    log : (logger : Var)
-       -> (lvl    : LogLevel)
-       -> (msg    : String)
-       -> ST m () [logger ::: Logger]
+  log : (logger : Var)
+     -> (lvl    : LogLevel)
+     -> (msg    : String)
+     -> ST m () [logger ::: Logger]
 
-    endLogging : (logger : Var)
-              -> ST m () [Remove logger Logger]
+  endLogging : (logger : Var)
+            -> ST m () [Remove logger Logger]
 
-  ConsoleIO IO => Logging IO where
-    Logger = State LogLevel
+public export
+Logging IO where
+  Logger = State LogLevel
 
-    startLogging lvl = do
-      logger <- new lvl
-      pure logger
+  startLogging lvl = do
+    logger <- new lvl
+    pure logger
 
-    setLevel logger new = write logger new
+  setLevel logger new = write logger new
 
-    log logger lvl msg = do
-      curr <- read logger
-      case compare lvl curr of
-        GT => pure ()
-        _  => do
-          call $ putStr $ unwords [show (cast {to=Nat} lvl), ":", msg]
-          pure ()
+  log logger lvl msg = do
+    curr <- read logger
+    case compare lvl curr of
+      GT => pure ()
+      _  => do
+        putStr $ unwords [show (cast {to=Nat} lvl), ":", msg]
+        pure ()
 
-    endLogging logger = delete logger
+  endLogging logger = delete logger
+
+public export
+Logging (IOExcept err) where
+  Logger = State LogLevel
+
+  startLogging lvl = do
+    logger <- new lvl
+    pure logger
+
+  setLevel logger new = write logger new
+
+  log logger lvl msg = do
+    curr <- read logger
+    case compare lvl curr of
+      GT => pure ()
+      _  => do
+        putStr $ unwords [show (cast {to=Nat} lvl), ":", msg]
+        pure ()
+
+  endLogging logger = delete logger
