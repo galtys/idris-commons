@@ -53,13 +53,13 @@ Ord LogLevel where
 
 public export
 interface Logging (m : Type -> Type) where
-  data Logger : Type
+  Logger : Type
 
   startLogging : (lvl : LogLevel)
               -> ST m (Var) [add Logger]
 
   setLevel : (logger : Var)
-          -> (new : LogLevel)
+          -> (n : LogLevel)
           -> ST m () [logger ::: Logger]
 
   log : (logger : Var)
@@ -68,7 +68,7 @@ interface Logging (m : Type -> Type) where
      -> ST m () [logger ::: Logger]
 
   endLogging : (logger : Var)
-            -> ST m () [Remove logger Logger]
+            -> ST m () [remove logger Logger]
 
 public export
 Logging IO where
@@ -78,7 +78,7 @@ Logging IO where
     logger <- new lvl
     pure logger
 
-  setLevel logger new = write logger new
+  setLevel logger n = write logger n
 
   log logger lvl msg = do
     curr <- read logger
@@ -109,3 +109,6 @@ Logging (IOExcept err) where
         pure ()
 
   endLogging logger = delete logger
+
+
+-- --------------------------------------------------------------------- [ EOF ]
