@@ -19,9 +19,4 @@ SystemIO IO where
   time    = lift time
   usleep  i = lift (usleep i)
 
-SystemIO (IOExcept err) where
-  getArgs = lift (ioe_lift getArgs)
-  time    = lift (ioe_lift time)
-  usleep  i = lift (ioe_lift $ usleep i)
-
 -- --------------------------------------------------------------------- [ EOF ]

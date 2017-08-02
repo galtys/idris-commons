@@ -9,7 +9,7 @@ readme     = README.md
 sourceloc  = https://github.com/jfdm/idris-commons.git
 bugtracker = http://www.github.com/jfdm/idris-commons/issues
 
-pkgs = contrib
+pkgs = contrib, containers
 
 modules = Data.Action
         , Data.DayTime
@@ -21,7 +21,9 @@ modules = Data.Action
 
         , Data.Display
 
-        , Commons.Logging
+        , Commons.Logging.Log4Idris
+        , Commons.Logging.Simple
+        , Commons.Logging.Logger
         , Commons.File
         , Commons.System
         , Commons.ST
