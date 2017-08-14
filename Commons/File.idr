@@ -31,7 +31,7 @@ data State = Closed | Open
 
 ||| Alias for File actions.
 FileAction : ActionTy -> Type -> Type
-FileAction action rTy = Action action rTy FileError
+FileAction action = Action action FileError
 
 interface FileIO (m : Type -> Type) where
   data File : Mode -> State -> Type
