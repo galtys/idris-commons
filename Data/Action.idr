@@ -84,6 +84,13 @@ Applicative (Action RESULT ety) where
   (<*>) (Result _)  (Error err) = Error err
   (<*>) (Error err) _           = Error err
 
+combine : Action SUCCESS eTy ()
+       -> Action SUCCESS eTy ()
+       -> Action SUCCESS eTy ()
+combine Success     Success     = Success
+combine Success     (Error err) = Error err
+combine (Error err) _           = Error err
+
 export
 Monad (Action RESULT ety) where
   (>>=) (Result x) f = f x
