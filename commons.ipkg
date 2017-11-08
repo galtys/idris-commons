@@ -21,6 +21,9 @@ modules = Data.Action
 
         , Data.Display
 
+        , Data.Graphviz.SimpleDot
+
+
         , Commons.Logging.Log4Idris
         , Commons.Logging.Simple
         , Commons.Logging.Logger
