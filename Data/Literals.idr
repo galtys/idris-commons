@@ -9,16 +9,28 @@ module Data.Literals
 %default total
 %access public export
 
-||| Proof that the given value `val'` of type `ty` has value `a`.
-Literal : (ty : Type) -> (a : ty) -> Type
-Literal valTy val = (val' : valTy ** val' = val)
+
+||| Proof that the given value level `b` of type `ty` has value `a`.
+data Literal : (ty : Type)
+            -> (a : ty)
+            -> Type
+  where
+    MkLiteral : (b : ty)
+             -> (prf : b = a)
+             -> Literal ty a
+
+newLiteral : (b : ty) -> Literal ty b
+newLiteral b = MkLiteral b Refl
 
 ||| Representation of String literals.
 LitString : String -> Type
 LitString str = Literal String str
 
-||| Proof that the given natural is the successor of `n`.
-Next : (n : Nat) -> Type
-Next n = (o : Nat ** o = S n)
+||| Proof that the given natural `o` is the successor of `n`.
+data Next : (n : Nat) -> Type where
+  MkNext : (o : Nat) -> (prf : o = S n) -> Next n
+
+newNext : (o,n : Nat) -> (prf : o = S n) -> Next n
+newNext o _ prf = MkNext o prf
 
 -- --------------------------------------------------------------------- [ EOF ]
