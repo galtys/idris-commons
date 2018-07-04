@@ -33,6 +33,10 @@ modules = Data.Action
 
         , Options.ArgParse.Test
 
+        , Config.JSON.Model
+        , Config.JSON.Helpers
+        , Config.JSON.Parser
+        , Config.JSON
 
         , Commons.Logging.Log4Idris
         , Commons.Logging.Simple
