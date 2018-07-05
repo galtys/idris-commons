@@ -14,7 +14,6 @@ import Config.JSON.Helpers
 %default total
 %access private
 
-
 public export
 Parser : Type -> Type
 Parser = Grammar JSONToken True
