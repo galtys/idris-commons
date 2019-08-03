@@ -1,4 +1,4 @@
-module Options.ArgParse.Lexer
+module Commons.Options.ArgParse.Lexer
 
 import public Text.Lexer
 

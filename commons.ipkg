@@ -23,20 +23,18 @@ modules = Data.Action
 
         , Data.Graphviz.SimpleDot
 
-        , Options.ArgParse.Lexer
-        , Options.ArgParse.Parser.API
-        , Options.ArgParse.Parser
-        , Options.ArgParse.Error
-        , Options.ArgParse.Model
+        , Commons.Options.ArgParse.Lexer
+        , Commons.Options.ArgParse.Parser.API
+        , Commons.Options.ArgParse.Parser
+        , Commons.Options.ArgParse.Error
+        , Commons.Options.ArgParse.Model
 
-        , Options.ArgParse
+        , Commons.Options.ArgParse
 
-        , Options.ArgParse.Test
-
-        , Config.JSON.Model
-        , Config.JSON.Helpers
-        , Config.JSON.Parser
-        , Config.JSON
+        , Commons.Config.JSON.Model
+        , Commons.Config.JSON.Helpers
+        , Commons.Config.JSON.Parser
+        , Commons.Config.JSON
 
         , Commons.Logging.Log4Idris
         , Commons.Logging.Simple
@@ -44,5 +42,3 @@ modules = Data.Action
         , Commons.File
         , Commons.System
         , Commons.ST
-
-tests = Options.ArgParse.Test.runTests

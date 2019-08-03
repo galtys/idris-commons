@@ -1,8 +1,8 @@
-module Config.JSON.Helpers
+module Commons.Config.JSON.Helpers
 
 import Data.PList
 
-import Config.JSON.Model
+import Commons.Config.JSON.Model
 
 %access public export
 %default total

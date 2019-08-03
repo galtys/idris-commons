@@ -3,12 +3,12 @@
 -- Copyright   : (c) Jan de Muijnck-Hughes
 -- License     : see LICENSE
 -- --------------------------------------------------------------------- [ EOH ]
-module Options.ArgParse
+module Commons.Options.ArgParse
 
-import public Options.ArgParse.Model
+import public Commons.Options.ArgParse.Model
 
-import Options.ArgParse.Parser
-import public Options.ArgParse.Error
+import Commons.Options.ArgParse.Parser
+import public Commons.Options.ArgParse.Error
 
 %access export
 %default total

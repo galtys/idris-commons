@@ -1,4 +1,4 @@
-module Config.JSON.Model
+module Commons.Config.JSON.Model
 
 import Data.PList
 

@@ -1,4 +1,4 @@
-module Config.JSON
+module Commons.Config.JSON
 
 import Data.PList
 
@@ -8,9 +8,9 @@ import Text.Parser
 
 import Language.JSON.Lexer
 
-import public Config.JSON.Model
+import public Commons.Config.JSON.Model
 
-import Config.JSON.Parser
+import Commons.Config.JSON.Parser
 
 %default total
 %access public export

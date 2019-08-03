@@ -1,0 +1,7 @@
+package commons-test
+
+pkgs = contrib, containers
+
+modules = Commons.Options.ArgParse.Test
+
+tests = Options.ArgParse.Test.runTests

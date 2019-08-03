@@ -3,10 +3,11 @@
 -- Copyright : (c) Jan de Muijnck-Hughes
 -- License   : see LICENSE
 -- --------------------------------------------------------------------- [ EOH ]
-module Options.ArgParse.Test
+module Commons.Options.ArgParse.Test
 
-import Options.ArgParse
-import Options.ArgParse.Error
+import Commons.Options.ArgParse
+import Commons.Options.ArgParse.Error
+
 import Test.Unit.Assertions
 
 %access private

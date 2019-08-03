@@ -1,9 +1,9 @@
-module Options.ArgParse.Parser.API
+module Commons.Options.ArgParse.Parser.API
 
 import Data.String.Views
 
 import public Text.Parser
-import Options.ArgParse.Lexer
+import Commons.Options.ArgParse.Lexer
 
 
 %default total

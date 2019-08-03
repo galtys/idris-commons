@@ -3,7 +3,7 @@
 -- Copyright   : (c) Jan de Muijnck-Hughes
 -- License     : see LICENSE
 -- --------------------------------------------------------------------- [ EOH ]
-module Options.ArgParse.Model
+module Commons.Options.ArgParse.Model
 
 %access public export
 

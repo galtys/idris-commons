@@ -1,4 +1,4 @@
-module Config.JSON.Parser
+module Commons.Config.JSON.Parser
 
 import Data.PList
 
@@ -8,8 +8,8 @@ import Text.Parser
 
 import Language.JSON.Lexer
 
-import Config.JSON.Model
-import Config.JSON.Helpers
+import Commons.Config.JSON.Model
+import Commons.Config.JSON.Helpers
 
 %default total
 %access private

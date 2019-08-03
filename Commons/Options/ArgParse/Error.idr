@@ -4,11 +4,10 @@
 -- License   : see LICENSE
 -- --------------------------------------------------------------------- [ EOH ]
 
-module Options.ArgParse.Error
+module Commons.Options.ArgParse.Error
 
-import public Options.ArgParse.Model
-
-import public Options.ArgParse.Parser
+import public Commons.Options.ArgParse.Model
+import public Commons.Options.ArgParse.Parser
 
 %access public export
 
