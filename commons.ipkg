@@ -18,7 +18,9 @@ modules = Data.Action
         , Data.Serialise
         , Data.FilePath
         , Data.QName
-
+        , Data.Rig
+        , Data.Location
+        , Data.DecInfo
         , Data.Display
 
         , Data.Graphviz.SimpleDot
