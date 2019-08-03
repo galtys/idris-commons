@@ -1,4 +1,4 @@
-module Logging.Simple
+module Commons.Control.Logging.Simple
 
 import Control.ST
 

@@ -4,7 +4,7 @@
 ||| License   : see LICENSE
 |||
 |||
-module Data.Ranged
+module Commons.Data.Ranged
 
 import Data.So
 

@@ -5,7 +5,7 @@
 -- --------------------------------------------------------------------- [ EOH ]
 
 ||| A Simple Graph representation for Dot.
-module Data.Graphviz.SimpleDot
+module Commons.Data.Graphviz.SimpleDot
 
 import Data.AVL.Graph
 

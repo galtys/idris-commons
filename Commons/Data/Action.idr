@@ -4,7 +4,7 @@
 |||
 ||| In some cases `Maybe` is not sufficient to describe the results of
 ||| operations. Here we describe a more Generic result data type.
-module Data.Action
+module Commons.Data.Action
 
 %access public export
 

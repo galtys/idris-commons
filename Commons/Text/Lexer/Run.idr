@@ -1,6 +1,6 @@
-module Text.Lexer.Run
+module Commons.Text.Lexer.Run
 
-import Data.Location
+import Commons.Data.Location
 import Text.Lexer
 
 %default total

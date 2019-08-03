@@ -1,10 +1,10 @@
-module Text.Parser.Location
+module Commons.Text.Parser.Location
 
 import Text.Lexer
 import Text.Parser
 
-import Data.Location
-import Text.Parser.Support
+import Commons.Data.Location
+import Commons.Text.Parser.Support
 
 %default total
 %access export

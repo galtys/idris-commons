@@ -1,6 +1,6 @@
-module Data.FilePath
+module Commons.Data.FilePath
 
-import Data.Display
+import Commons.Text.Display
 
 %default total
 %access public export

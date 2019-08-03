@@ -1,4 +1,4 @@
-module Data.Location
+module Commons.Data.Location
 
 %default total
 %access public export

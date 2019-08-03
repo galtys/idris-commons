@@ -5,7 +5,7 @@
 ||| One can always encode failing cases within the property itself but that is not necessarily a advantageous.
 |||
 ||| `DecInfo` provides a data structure to capture decidable properties together with an informative error message for when the property does not hold.
-module Data.DecInfo
+module Commons.Data.DecInfo
 
 %default total
 %access public export

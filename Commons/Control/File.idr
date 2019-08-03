@@ -1,10 +1,10 @@
-module Commons.File
+module Commons.Control.File
 
 import Control.ST
 
-import Commons.ST
+import Commons.Control.ST
 
-import Data.Action
+import Commons.Data.Action
 
 %access public export
 %default total

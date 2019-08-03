@@ -1,4 +1,4 @@
-module Data.Rig
+module Commons.Data.Rig
 
 import public Data.Vect
 

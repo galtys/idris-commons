@@ -4,7 +4,7 @@
 ||| License   : see LICENSE
 |||
 ||| Deal with literal values at the type-level.
-module Data.Literals
+module Commons.Data.Literals
 
 %default total
 %access public export

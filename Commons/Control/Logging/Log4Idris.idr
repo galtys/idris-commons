@@ -1,4 +1,4 @@
-module Commons.Logging.Log4Idris
+module Commons.Control.Logging.Log4Idris
 
 import Control.IOExcept
 import Control.ST

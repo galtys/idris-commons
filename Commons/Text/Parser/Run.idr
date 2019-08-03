@@ -1,11 +1,11 @@
-module Text.Parser.Run
+module Commons.Text.Parser.Run
 
-import Data.Location
+import Commons.Data.Location
 
 import Text.Parser
 
 import Text.Lexer
-import Text.Lexer.Run
+import Commons.Text.Lexer.Run
 
 %default total
 %access export

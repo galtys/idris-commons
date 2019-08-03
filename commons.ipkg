@@ -11,19 +11,19 @@ bugtracker = http://www.github.com/jfdm/idris-commons/issues
 
 pkgs = contrib, containers
 
-modules = Data.Action
-        , Data.DayTime
-        , Data.Literals
-        , Data.Ranged
-        , Data.Serialise
-        , Data.FilePath
-        , Data.QName
-        , Data.Rig
-        , Data.Location
-        , Data.DecInfo
-        , Data.Display
+modules = Commons.Data.Action
+        , Commons.Data.DayTime
+        , Commons.Data.Literals
+        , Commons.Data.Ranged
+        , Commons.Data.Serialise
+        , Commons.Data.FilePath
+        , Commons.Data.QName
+        , Commons.Data.Rig
+        , Commons.Data.Location
+        , Commons.Data.DecInfo
+        , Commons.Data.Display
 
-        , Data.Graphviz.SimpleDot
+        , Commons.Data.Graphviz.SimpleDot
 
         , Commons.Options.ArgParse.Lexer
         , Commons.Options.ArgParse.Parser.API
@@ -38,15 +38,15 @@ modules = Data.Action
         , Commons.Config.JSON.Parser
         , Commons.Config.JSON
 
-        , Commons.Logging.Log4Idris
-        , Commons.Logging.Simple
-        , Commons.Logging.Logger
-        , Commons.File
-        , Commons.System
-        , Commons.ST
+        , Commons.Control.Logging.Log4Idris
+        , Commons.Control.Logging.Simple
+        , Commons.Control.Logging.Logger
+        , Commons.Control.File
+        , Commons.Control.System
+        , Commons.Control.ST
 
-        , Text.Display.SExpr
-        , Text.Lexer.Run
-        , Text.Parser.Support
-        , Text.Parser.Run
-        , Text.Parser.Location
+        , Commons.Text.Display.SExpr
+        , Commons.Text.Lexer.Run
+        , Commons.Text.Parser.Support
+        , Commons.Text.Parser.Run
+        , Commons.Text.Parser.Location

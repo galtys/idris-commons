@@ -1,4 +1,4 @@
-module Commons.Logging.Logger
+module Commons.Control.Logging.Logger
 
 import Control.IOExcept
 import Control.ST

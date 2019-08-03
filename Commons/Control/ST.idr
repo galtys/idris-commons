@@ -2,7 +2,7 @@ module Commons.ST
 
 import Control.ST
 
-import Data.Action
+import Commons.Data.Action
 
 %default total
 %access public export

@@ -1,4 +1,4 @@
-module Data.Display
+module Commons.Text.Display
 
 %access public export
 %default total

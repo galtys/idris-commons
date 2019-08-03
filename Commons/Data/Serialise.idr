@@ -8,7 +8,7 @@
 |||
 ||| We could call this class marshall but I am fond of the
 ||| connotations associated with Java's serializable interface.
-module Data.Serialise
+module Commons.Data.Serialise
 
 %access public export
 

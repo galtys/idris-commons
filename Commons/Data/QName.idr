@@ -1,9 +1,9 @@
 ||| Lightweight representation of qualified names.
 |||
 ||| TODO: Look at making names subject to user supplied predicates.
-module Data.QName
+module Commons.Data.QName
 
-import Data.Display
+import Commons.Text.Display
 
 %default total
 %access public export

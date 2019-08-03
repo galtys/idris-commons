@@ -3,7 +3,7 @@
 ||| Copyright : (c) Jan de Muijnck-Hughes
 ||| License   : see LICENSE
 |||
-module Data.DayTime
+module Commons.Data.DayTime
 
 %default total
 %access public export
