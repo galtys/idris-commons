@@ -44,3 +44,9 @@ modules = Data.Action
         , Commons.File
         , Commons.System
         , Commons.ST
+
+        , Text.Display.SExpr
+        , Text.Lexer.Run
+        , Text.Parser.Support
+        , Text.Parser.Run
+        , Text.Parser.Location
