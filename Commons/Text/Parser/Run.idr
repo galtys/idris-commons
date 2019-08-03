@@ -22,7 +22,6 @@ data ParseError a = PError (ParseFailure a)
                   | LError LexError
                   | FError FileError
 
-
 export
 convError : Core.ParseError (TokenData a)
          -> Maybe String

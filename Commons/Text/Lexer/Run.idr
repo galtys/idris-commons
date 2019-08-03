@@ -16,6 +16,12 @@ record LexError where
 public export
 data LexFail = LError LexError | LIOErr FileError
 
+Show LexFail where
+  show (LError (MkLexFail loc i)) =
+    unwords ["Lexing Error at ", show loc, ":\n", show i]
+  show (LIOErr err) =
+    unwords ["FileError", show err]
+
 public export
 record Lexer a where
   constructor MkLexer

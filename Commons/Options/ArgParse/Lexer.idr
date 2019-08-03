@@ -1,9 +1,11 @@
 module Commons.Options.ArgParse.Lexer
 
-import public Text.Lexer
+import Text.Lexer
+
+import public Commons.Text.Lexer.Run
 
 %default total
-%access export
+%access private
 
 public export
 data Token = SFlag   String
@@ -14,6 +16,7 @@ data Token = SFlag   String
            | Arg String
            | Unknown String
 
+export
 Show Token where
   show (LFlag    x) = unwords ["LFlag",   show x]
   show (SFlag    x) = unwords ["SFlag",   show x]
@@ -22,11 +25,6 @@ Show Token where
   show (WS      x) = unwords ["WS",     show x]
   show (Arg    x) = unwords ["Arg",     show x]
   show (Unknown x) = unwords ["BAD TOKEN", show x]
-
---doubleLit : Lexer
---doubleLit = (is '-' <|> empty)
---        <+> digits
---        <+> (is '.' <+> (digits <|> empty) <|> empty)
 
 ch : Lexer
 ch = pred (isAlphaNum)
@@ -57,17 +55,21 @@ rawTokens =
   , (symbol, Unknown)
   ]
 
-export
-lex : String -> Either (Int, Int, String) (List (TokenData Token))
-lex str
-    = case Lexer.Core.lex rawTokens str of
-           (tok, (_, _, "")) => Right (filter notComment tok)
-           (_, fail) => Left fail
-    where
-      notComment : TokenData Token -> Bool
-      notComment t = case tok t of
-                          WS _ => False
-                          _ => True
+keep : TokenData Token -> Bool
+keep t with (tok t)
+  keep t | (WS x) = False
+  keep t | _      = True
 
+export
+ArgParseLexer : Lexer Token
+ArgParseLexer = MkLexer rawTokens keep
+
+export
+lexArgParseStr : String -> Either LexError (List (TokenData Token))
+lexArgParseStr = lexString ArgParseLexer
+
+export
+lexArgParseFile : String -> IO $ Either LexFail (List (TokenData Token))
+lexArgParseFile = lexFile ArgParseLexer
 
 -- --------------------------------------------------------------------- [ EOF ]

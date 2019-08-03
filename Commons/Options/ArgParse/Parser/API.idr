@@ -2,54 +2,48 @@ module Commons.Options.ArgParse.Parser.API
 
 import Data.String.Views
 
-import public Text.Parser
+import Text.Lexer
+import Text.Parser
+
 import Commons.Options.ArgParse.Lexer
+import public Commons.Text.Parser.Support
 
 
 %default total
 %access export
 
-public export
-Rule : Type -> Type
-Rule ty = Grammar (TokenData Token) True ty
-
-public export
-EmptyRule : Type -> Type
-EmptyRule ty = Grammar (TokenData Token) False ty
-
-
 -- Some basic parsers used by all the intermediate forms
 
 export
-shortFlag : Rule String
+shortFlag : Rule Token String
 shortFlag
     = terminal (\x => case tok x of
                            SFlag f => Just (substr 1 (length f) f)
                            _     => Nothing)
 
 export
-longFlag : Rule String
+longFlag : Rule Token String
 longFlag
     = terminal (\x => case tok x of
                            LFlag f => Just (substr 2 (length f) f)
                            _       => Nothing)
 
 export
-arg : Rule String
+arg : Rule Token String
 arg = terminal
   (\x => case tok x of
            Arg s => Just (trim s)
            _     => Nothing)
 
 export
-equals : Rule ()
+equals : Rule Token ()
 equals = terminal
   (\x => case tok x of
            Equals _ => Just ()
            _        => Nothing)
 
 export
-quoted : Rule String
+quoted : Rule Token String
 quoted = terminal
     (\x => case tok x of
              Quoted s => Just $ rmQuotes s

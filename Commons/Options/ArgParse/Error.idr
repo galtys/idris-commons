@@ -6,17 +6,25 @@
 
 module Commons.Options.ArgParse.Error
 
-import public Commons.Options.ArgParse.Model
-import public Commons.Options.ArgParse.Parser
+import Commons.Data.Location
 
+import Commons.Options.ArgParse.Model
+import Commons.Options.ArgParse.Lexer
+import Commons.Options.ArgParse.Parser
+
+%default total
 %access public export
 
 data ArgParseError : Type where
-  InvalidOption : Arg -> ArgParseError
-  ParseError : ParseError -> ArgParseError
+  InvalidOption   : Arg -> ArgParseError
+  MalformedOption : ParseError Token -> ArgParseError
 
-(Show ParseError, Show Arg) => Show ArgParseError where
+(Show Arg) => Show ArgParseError where
   show (InvalidOption o) = "Invalid Option " ++ show o
-  show (ParseError err)  = "Parsing Error\n" ++ show err
+  show (MalformedOption (PError (MkParseFail error location rest))) =
+    unlines [show location, error]
+  show (MalformedOption (LError (MkLexFail l i)))  = unwords [show l, ":\n" <+> i]
+  show (MalformedOption (FError x))  = unlines ["File Error:", show x]
+
 
 -- --------------------------------------------------------------------- [ EOF ]
