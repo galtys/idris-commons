@@ -7,7 +7,7 @@ module Options.ArgParse.Test
 
 import Options.ArgParse
 import Options.ArgParse.Error
-import Test.Assertions
+import Test.Unit.Assertions
 
 %access private
 
@@ -57,7 +57,7 @@ test1 =
 export
 runTests : IO ()
 runTests = do
-    putStrLn $ heading "Testing ArgParse"
+    putStrLn "Testing ArgParse"
     test1
     printLn !(assertRight $ parseArgs defOpts convOpts Nil)
 
