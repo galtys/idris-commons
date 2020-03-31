@@ -12,8 +12,8 @@ module Commons.Data.DecInfo
 
 
 data DecInfo : (errType : Type) -> (prop : Type) -> Type where
-   Yes : prop -> DecInfo errType prop
-   No  : (why : errType) -> (prop -> Void) -> DecInfo errType prop
+   Yes : (prfWhy : prop) -> DecInfo errType prop
+   No  : (msgWhyNot: errType) -> (prfWhyNot : prop -> Void) -> DecInfo errType prop
 
 
 -- --------------------------------------------------------------------- [ EOF ]

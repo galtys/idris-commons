@@ -21,7 +21,6 @@ modules = Commons.Data.Action
         , Commons.Data.Rig
         , Commons.Data.Location
         , Commons.Data.DecInfo
-        , Commons.Data.Display
 
         , Commons.Data.Graphviz.SimpleDot
 
@@ -45,7 +44,8 @@ modules = Commons.Data.Action
         , Commons.Control.System
         , Commons.Control.ST
 
-        , Commons.Text.Display.SExpr
+        , Commons.Text.Display
+
         , Commons.Text.Lexer.Run
         , Commons.Text.Parser.Support
         , Commons.Text.Parser.Run
