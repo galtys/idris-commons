@@ -27,6 +27,7 @@ record Lexer a where
   constructor MkLexer
   tokenMap : TokenMap a
   keep : TokenData a -> Bool
+  endInput : a
 
 export
 lexString : Lexer a
@@ -34,7 +35,7 @@ lexString : Lexer a
          -> Either LexError (List (TokenData a))
 lexString lexer str =
       case Lexer.Core.lex (tokenMap lexer) str of
-        (tok, (_, _, "")) => Right (filter (keep lexer) tok)
+        (tok, (c,l, "")) => Right (filter (keep lexer) tok ++ [MkToken c l (endInput lexer)])
         (_,   (c,l,i))    => Left (MkLexFail (MkLoc Nothing (toNat c) (toNat l)) i)
 
 export

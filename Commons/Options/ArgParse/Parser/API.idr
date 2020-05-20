@@ -2,6 +2,7 @@ module Commons.Options.ArgParse.Parser.API
 
 import Data.String.Views
 
+import Text.Token
 import Text.Lexer
 import Text.Parser
 
@@ -17,7 +18,7 @@ import public Commons.Text.Parser.Support
 export
 shortFlag : Rule Token String
 shortFlag
-    = terminal (\x => case tok x of
+    = terminal  (\x => case tok x of
                            SFlag f => Just (substr 1 (length f) f)
                            _     => Nothing)
 

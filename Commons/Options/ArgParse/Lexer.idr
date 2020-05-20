@@ -15,6 +15,7 @@ data Token = SFlag   String
            | WS String
            | Arg String
            | Unknown String
+           | EndInput
 
 export
 Show Token where
@@ -25,6 +26,7 @@ Show Token where
   show (WS      x) = unwords ["WS",     show x]
   show (Arg    x) = unwords ["Arg",     show x]
   show (Unknown x) = unwords ["BAD TOKEN", show x]
+  show EndInput = "ENDINPUT"
 
 ch : Lexer
 ch = pred (isAlphaNum)
@@ -62,7 +64,7 @@ keep t with (tok t)
 
 export
 ArgParseLexer : Lexer Token
-ArgParseLexer = MkLexer rawTokens keep
+ArgParseLexer = MkLexer rawTokens keep EndInput
 
 export
 lexArgParseStr : String -> Either LexError (List (TokenData Token))
