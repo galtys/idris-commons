@@ -47,9 +47,12 @@ modules = Commons.Data.Action
         , Commons.Text.Display
 
         , Commons.Text.Lexer.Run
+        , Commons.Text.Lexer.Test
+
         , Commons.Text.Parser.Support
         , Commons.Text.Parser.Run
         , Commons.Text.Parser.Location
+        , Commons.Text.Parser.Test
 
         , Commons.Test.Unit.Lexer
         , Commons.Test.Unit.Parser

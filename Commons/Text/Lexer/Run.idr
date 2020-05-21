@@ -13,6 +13,10 @@ record LexError where
   location : Location
   input  : String
 
+Show LexError where
+  show (MkLexFail l i) =
+    unwords ["Lexing Error at ", show l, ":\n", show i]
+
 public export
 data LexFail = LError LexError | LIOErr FileError
 
