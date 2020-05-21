@@ -50,3 +50,6 @@ modules = Commons.Data.Action
         , Commons.Text.Parser.Support
         , Commons.Text.Parser.Run
         , Commons.Text.Parser.Location
+
+        , Commons.Test.Unit.Lexer
+        , Commons.Test.Unit.Parser
