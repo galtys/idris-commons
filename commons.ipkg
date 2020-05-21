@@ -16,7 +16,6 @@ modules = Commons.Data.Action
         , Commons.Data.Literals
         , Commons.Data.Ranged
         , Commons.Data.Serialise
-        , Commons.Data.FilePath
         , Commons.Data.QName
         , Commons.Data.Rig
         , Commons.Data.Location
